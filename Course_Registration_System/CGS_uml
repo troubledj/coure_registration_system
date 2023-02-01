@@ -1,0 +1,83 @@
+@startuml
+class User {
+  +username: String
+  +password: String
+  +firstName: String
+  +lastName: String
+}
+
+interface Admin {
+  +createCourse(): void
+  +deleteCourse(): void
+  +editCourse(): void
+  +displayCourseInfo(): void
+  +registerStudent(): void
+  +exit(): void
+}
+
+interface Student {
+  +viewCourses(): void
+  +registerOnCourse(): void
+  +withdrawFromCourse(): void
+  +viewRegisteredCourses(): void
+  +exit(): void
+}
+
+class Admin {
+  +createCourse(): void
+  +deleteCourse(): void
+  +editCourse(): void
+  +displayCourseInfo(): void
+  +registerStudent(): void
+  +exit(): void
+}
+
+class Student {
+  +viewCourses(): void
+  +registerOnCourse(): void
+  +withdrawFromCourse(): void
+  +viewRegisteredCourses(): void
+  +exit(): void
+}
+
+class Course {
+  +courseName: String
+  +courseId: String
+  +maxStudents: int
+  +currentStudents: int
+  +studentList: ArrayList<String>
+  +courseInstructor: String
+  +courseSection: int
+  +courseLocation: String
+}
+
+class MyUniversity {
+  +courses: ArrayList<Course>
+  +login(): void
+}
+
+class GUI {
+  +displayAdminMenu(): void
+  +displayStudentMenu(): void
+  +displayCourseList(): void
+  +displayFullCourses(): void
+  +displayStudentCourses(): void
+  +displayCourseInfo(): void
+  +registerStudent(): void
+  +createCourse(): void
+  +deleteCourse(): void
+  +editCourse(): void
+  +registerOnCourse(): void
+  +withdrawFromCourse(): void
+  +writeToFile(): void
+}
+
+User --> Admin
+User --> Student
+Admin --> MyUniversity
+Student --> MyUniversity
+MyUniversity --> Course
+MyUniversity --> GUI
+Admin --> GUI
+Student --> GUI
+@enduml
